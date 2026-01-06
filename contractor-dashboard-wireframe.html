@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeInforce - Contractor Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f8fafc;
+            color: #334155;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .user-info span {
+            font-weight: 500;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            background: #f8fafc;
+            transform: translateY(-1px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .action-card h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .action-card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .action-card .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .section-header h2 {
+            color: #1e293b;
+            font-size: 20px;
+        }
+
+        .project-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .project-item {
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s;
+        }
+
+        .project-item:hover {
+            border-color: #667eea;
+        }
+
+        .project-info h4 {
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-compliant {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-non-compliant {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .location-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>CodeInforce</h1>
+        <div class="user-info">
+            <span>ABC Construction Co.</span>
+            <button class="btn btn-primary" onclick="alert('Settings/Profile menu')">Settings</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="quick-actions">
+            <div class="action-card" onclick="alert('Start new compliance assessment workflow')">
+                <div class="icon">📸</div>
+                <h3>New Assessment</h3>
+                <p>Take photos/video of work and get AI compliance check against local ordinances</p>
+            </div>
+
+            <div class="action-card" onclick="alert('Pull permits interface')">
+                <div class="icon">📋</div>
+                <h3>Pull Permits</h3>
+                <p>Request and pay for construction permits before work begins</p>
+            </div>
+
+            <div class="action-card" onclick="alert('View compliance history')">
+                <div class="icon">📊</div>
+                <h3>Compliance History</h3>
+                <p>View past assessments and compliance status across all projects</p>
+            </div>
+
+            <div class="action-card" onclick="alert('Subscription management')">
+                <div class="icon">💳</div>
+                <h3>Subscription</h3>
+                <p>Manage your subscription plan or switch to per-use pricing</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2>Recent Assessments</h2>
+                <button class="btn btn-primary">View All</button>
+            </div>
+            <div class="project-list">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>Residential Addition - 123 Main St</h4>
+                        <p>Assessment completed: Jan 3, 2026</p>
+                        <div class="location-info">
+                            📍 Austin, TX - Ordinance: ATX-2024-BLDG-001
+                        </div>
+                    </div>
+                    <span class="status-badge status-compliant">✓ Compliant</span>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>Commercial Renovation - 456 Oak Ave</h4>
+                        <p>Assessment completed: Dec 28, 2025</p>
+                        <div class="location-info">
+                            📍 Dallas, TX - Ordinance: DAL-2023-COM-045
+                        </div>
+                    </div>
+                    <span class="status-badge status-non-compliant">⚠ Needs Attention</span>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>Foundation Work - 789 Pine Rd</h4>
+                        <p>Assessment pending review: Jan 5, 2026</p>
+                        <div class="location-info">
+                            📍 Houston, TX - Ordinance: HOU-2024-FND-012
+                        </div>
+                    </div>
+                    <span class="status-badge status-pending">⏳ Under Review</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2>Active Permits</h2>
+                <button class="btn btn-primary">Manage Permits</button>
+            </div>
+            <div class="project-list">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>Permit #ATX-2026-001234</h4>
+                        <p>Residential Addition - Approved Jan 2, 2026</p>
+                        <div class="location-info">
+                            📍 123 Main St, Austin, TX - Expires: Mar 2, 2026
+                        </div>
+                    </div>
+                    <span class="status-badge status-compliant">Active</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
